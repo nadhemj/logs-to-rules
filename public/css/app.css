@@ -1,0 +1,39 @@
+#chart{
+    width : 600px;
+    height : 600px;
+    margin: 0 auto;
+}
+th {
+    font-weight : bold
+}
+.column {
+    display: table-cell;
+    overflow: hidden;
+    padding-left: 10px;
+    clear:left;
+}
+.table__first-column-header{
+    clear:left;
+}
+
+.column-row {
+    line-height: 24px;
+    height: 24px;
+}
+
+.table {
+    display: table-row;
+}
+
+.column-row {
+    vertical-align: top;
+    overflow: hidden;
+    margin-left: 0;
+    position: relative;
+    width: auto;
+    padding-left: 7px;
+    white-space: nowrap;
+}
+i{
+    float:left;
+}
