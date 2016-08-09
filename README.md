@@ -53,7 +53,9 @@ This application processes log file to get set of rules, based on a strict algor
 5. `php artisan migrate` to create tables
 
 **Main functions**
+
 php:
+
 /app/Http/Controllers/LogController.php
 * index() - parse log file, generate .sql files, upload data.sql to database.
 * part() - upload data2.sql to database. (improves performance and UX)
