@@ -30,7 +30,6 @@ This application processes log file to get set of rules, based on a strict algor
 4. Create a database and inform *.env* (remove *.example*, change DB data in *.env*)
 5. `php artisan migrate` to create tables
 
-
 **Main functions**
 php:
 /app/Http/Controllers/LogController.php
