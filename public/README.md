@@ -1,6 +1,8 @@
 ## Firewall rules generator. Alpha Version ##
 This application processes log file to get set of rules, based on a strict algorithm.
 **Application workflow:**
+
+
 1. Log file uploaded via simple upload form.
 2. Log file being parsed:
 2.1. Open log file to read with php
