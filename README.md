@@ -1,26 +1,47 @@
 ## Firewall rules generator. ##
 This application processes log file to get set of rules, based on a strict algorithm.
+
 **Application workflow:**
 1. Log file uploaded via simple upload form.
+
 2. Log file being parsed:
+
 2.1. Open log file to read with php
+
 2.2. Create data.sql file to gather data for database. Insert request to create temporary table for initial calculation.
+
 2.3. Iteratively read each line of file:
+
 2.3.1. Check if line contents are correct: line should not contain any other symbols than numbers and dots.
+
 2.3.2. Convert IPs to long numerical with ip2long php function.
+
 2.3.3. Apply subnet masks to converted IPs to get additional data for database (/24, /16, /8 subnets)
+
 2.3.4. Store results in a php string, counting each parsed line.
+
 2.3.5. If the file completely parsed, or counter reaches 2000 lines, string saved in data.sql file to avoid slowing. String then cleared.
+
 2.4. Loop to calculate tolerance (or permissiveness) for each step of algorithm and create requests for database filling:
+
 2.4.1. Call to a function, containing current tolerance formula (where weights can be changed), with specific parameters for each step.
+
 2.4.2. After getting permissiveness, create request to generate new rules set with higher permissiveness, than the previous one has.
+
 2.4.3. Insert request to data.sql file
+
 2.4.4. Insert request to update lines, which were used to generate rules set (give them parent ID) to data.sql file.
+
 2.5. Upload data.sql directly to database as a dump file (using exec to call MySQL command line). This allows to minimise number of connections to the database
+
 3. After database is filled, application redirects to the results page (can be altered to notify user, tha process is finished, and then show the results)
+
 4. We have an interactive chart, which shows number of rules and permissiveness level for each step of algorithm.
+
 5. After clicking a certain point of chart, user gets online interactive tree table, which contains rules set for a chosen point.
+
 5.1. By opening any node of a tree, user excludes opened node from the rules set and includes children of that node to the set.
+
 5.2. To get the resulting rules set (.csv file), user can choose a raw file, which contains only required data for the firewall, or a user-optimised table, which contains table headers and additional data for easier file reading
 
 ###Installation process:###
