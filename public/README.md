@@ -27,10 +27,13 @@ This application processes log file to get set of rules, based on a pre-defined 
 5.2. To get the resulting rules set (.csv file), user can choose a raw file, which contains only required data for the firewall, or a user-optimised table, which contains table headers and additional data for easier file reading
 
 ###Installation process:###
+
+You need to have a DB (ex. MySQL installed for the application to work)
+
 1. `git clone https://github.com/nadhemj/logs-to-rules.git projectname`
 2. `cd projectname`
 3. `composer install`
-4. Create a database and inform *.env* (remove *.example*, change DB data in *.env*)
+4. Create a database and inform *.env* (remove *.example*, change DB configuration in *.env*)
 5. `php artisan migrate` to create tables
 
 
