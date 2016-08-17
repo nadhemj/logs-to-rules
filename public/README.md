@@ -26,16 +26,37 @@ This application processes log file to get set of rules, based on a pre-defined 
 5.1. By opening any node of a tree, user excludes opened node from the rules set and includes children of that node to the set.
 5.2. To get the resulting rules set (.csv file), user can choose a raw file, which contains only required data for the firewall, or a user-optimised table, which contains table headers and additional data for easier file reading
 
-###Installation process:###
+###Pre-requisits###
 
-You need to have a DB (ex. MySQL) installed for the application to work)
+The easiest option is to install Laravel Homestead. Detailed instrutions can be found on:
+https://laravel.com/docs/5.2/homestead#installation-and-setup
+
+1. Install vagarent
+2. Install virtualbox
+3. Follow the instructions for installing Laravel Homestead
+
+
+
+###Installation process:###
 
 1. `git clone https://github.com/nadhemj/logs-to-rules.git projectname`
 2. `cd projectname`
 3. `composer install`
 4. Create a database and inform *.env* (remove *.example*, change DB configuration in *.env*)
+In case you are using MySQL, which comes by default with Laravel Homestead:
+`
+// Login to MySQL (password is "secret")
+mysql -u homestead -p
+
+// Create the new database
+CREATE DATABASE your_app_name;
+
+// Exit MySQL
+exit;
+`
 5. `php artisan migrate` to create tables
 
+Now you ar ready 
 
 **Main functions**
 php:
