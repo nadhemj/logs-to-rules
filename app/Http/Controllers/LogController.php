@@ -47,11 +47,6 @@ INDEX  `all` (  `id` ,  `from_ip` ,  `to_ip` ,  `port` ,  `protocol` , `from_8_s
             //            Parse the input log file
             while (!feof($fh)) {
                 $line = fgetcsv($fh, null, ' ');
-//                var_dump($line);
-//                var_dump(ctype_digit($line[2]));
-//                var_dump(ctype_digit($line[3]));
-//                var_dump(count($line)==4);
-//                exit;
                 $i++;
 //                create the line
 //                check if line is valid: contains 4 values and last two of them - numerics
@@ -319,7 +314,7 @@ and l.tolerance<10;' . PHP_EOL);
             fclose($ofh2);
 //            upload .sql file to database as a dump file (much faster than via separate queries, especially with a lot of data)
 //creating set of unique ip-ip-port rules
-            exec("mysql -u ".env('DB_USERNAME')." -p".env('DB_PASSWORD')." micro < data.sql");
+            exec("mysql -u ".env('DB_USERNAME')." -p".env('DB_PASSWORD')." ".env('DB_DATABASE')." < data.sql");
 
 
 //            return when finished
@@ -333,7 +328,7 @@ and l.tolerance<10;' . PHP_EOL);
     public function part()
     {
 //        creating level-based rules
-        exec("mysql -u ".env('DB_USERNAME')." -p".env('DB_PASSWORD')." micro < data2.sql");
+        exec("mysql -u ".env('DB_USERNAME')." -p".env('DB_PASSWORD')." ".env('DB_DATABASE')." < data2.sql");
         return 'success';
     }
 //    function to get the chart points
