@@ -12,8 +12,11 @@ window.onload = function () {
         complete: function (result) {
             if (result.responseText != 'error') {
                 //used to notify user that the file is processed and results ready
-                $('#circleG').hide();
-                $('#success').show();
+                //Timeout prevents system overclocking before 2nd step
+                setTimeout(function(){
+                    $('#circleG').hide();
+                    $('#success').show();
+                }, 10000);
             } else {
                 window.location = '/error';
             }
