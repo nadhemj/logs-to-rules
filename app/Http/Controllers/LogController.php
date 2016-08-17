@@ -493,7 +493,7 @@ and l.tolerance<10;' . PHP_EOL);
                     $row->port = 'any';
                     break;
             }
-//            convert the IPs to standtrd, human-readable format
+//            convert the IPs to standard, human-readable format
             $row->from_ip = long2ip($row->from_ip);
             $row->to_ip = long2ip($row->to_ip);
 //            create line
