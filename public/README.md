@@ -39,24 +39,14 @@ https://laravel.com/docs/5.2/homestead#installation-and-setup
 
 ###Installation process:###
 
-1. `git clone https://github.com/nadhemj/logs-to-rules.git projectname`
-2. `cd projectname`
-3. `composer install`
-4. Create a database and inform *.env* (remove *.example*, change DB configuration in *.env*)
-In case you are using MySQL, which comes by default with Laravel Homestead:
-`
-// Login to MySQL (password is "secret")
-mysql -u homestead -p
-
-// Create the new database
-CREATE DATABASE your_app_name;
-
-// Exit MySQL
-exit;
-`
+1. `wget https://github.com/nadhemj/logs-to-rules/archive/master.zip`
+2. `unzip master.zip`
+3. `cd logs-to-rules`
+4. `composer install`
+5. Create a database and inform *.env* (remove *.example*, change DB configuration in *.env*)(alternatively you can change the database entry to homstead in .env file, DB_DATABASE=homestead)
 5. `php artisan migrate` to create tables
 
-Now you ar ready 
+Now you are ready 
 
 **Main functions**
 php:
