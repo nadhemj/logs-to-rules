@@ -1,4 +1,4 @@
-<?php
+/<?php
 namespace App\Http\Controllers;
 
 use Illuminate\Database\DatabaseServiceProvider;
@@ -446,10 +446,10 @@ and l.tolerance<10;' . PHP_EOL);
 //        create the output file
         $output = fopen('humanRules.csv', 'w');
 //        create table header
-        $firstLine = ['Source IP', 'Source mask', 'Destination IP', 'Destination mask', 'Port', 'Protocol'];
+        $firstLine = ['Source IP', 'Source mask', 'Destination IP', 'Destination mask', 'Port', 'Protocol', 'Hits', 'Tolerance'];
         fputcsv($output, $firstLine);
 //        get the data for output file
-        $rows = DB::select("select from_ip, to_ip, port, protocol, tolerance from logs where id in (" . $id . ");");
+        $rows = DB::select("select from_ip, to_ip, port, protocol, tolerance, hits from logs where id in (" . $id . ");");
 //        prepare data for output
         foreach ($rows as $row) {
 //            generate human-readable masks
@@ -500,7 +500,7 @@ and l.tolerance<10;' . PHP_EOL);
             $row->from_ip = long2ip($row->from_ip);
             $row->to_ip = long2ip($row->to_ip);
 //            create line
-            $line = ['Source IP' => $row->from_ip, 'Source mask' => $row->from_mask, 'Destination IP' => $row->to_ip, 'Destination mask' => $row->to_mask, 'Port' => $row->port, 'Protocol' => $row->protocol];
+            $line = ['Source IP' => $row->from_ip, 'Source mask' => $row->from_mask, 'Destination IP' => $row->to_ip, 'Destination mask' => $row->to_mask, 'Port' => $row->port, 'Protocol' => $row->protocol, 'Hits' => $row->hits, 'Tolerance' => $row->tolerance*10]];
 //            put line to output file
             fputcsv($output, $line);
         }
