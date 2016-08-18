@@ -38,6 +38,8 @@ class LogController extends Controller
 PRIMARY KEY (  `id` ) ,
 INDEX  `all` (  `id` ,  `from_ip` ,  `to_ip` ,  `port` ,  `protocol` , `from_8_subnet` ,  `from_16_subnet` , `from_24_subnet` ,  `to_8_subnet` ,  `to_16_subnet` , `to_24_subnet` )
 );' . PHP_EOL);
+            fwrite($ofh, "SET GLOBAL innodb_change_buffering = 'none';" . PHP_EOL);
+
 //            Prepare variables to parse the input file
             $i = 0;
             $sql = '';
@@ -309,6 +311,7 @@ and l.tolerance<10;' . PHP_EOL);
                 }
 
             }
+            fwrite($ofh2, "SET GLOBAL innodb_change_buffering = 'all';" . PHP_EOL);
 //            close .sql files
             fclose($ofh);
             fclose($ofh2);
