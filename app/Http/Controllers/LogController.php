@@ -500,7 +500,7 @@ and l.tolerance<10;' . PHP_EOL);
             $row->from_ip = long2ip($row->from_ip);
             $row->to_ip = long2ip($row->to_ip);
 //            create line
-            $line = ['Source IP' => $row->from_ip, 'Source mask' => $row->from_mask, 'Destination IP' => $row->to_ip, 'Destination mask' => $row->to_mask, 'Port' => $row->port, 'Protocol' => $row->protocol, 'Hits' => $row->hits, 'Tolerance' => $row->tolerance];
+            $line = ['Source IP' => $row->from_ip, 'Source mask' => $row->from_mask, 'Destination IP' => $row->to_ip, 'Destination mask' => $row->to_mask, 'Port' => $row->port, 'Protocol' => $row->protocol, 'Hits' => $row->hits, 'Tolerance' => $row->tolerance*10];
 //            put line to output file
             fputcsv($output, $line);
         }
