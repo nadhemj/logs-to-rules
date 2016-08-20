@@ -47,6 +47,9 @@ https://laravel.com/docs/5.2/homestead#installation-and-setup
 5. `php artisan migrate` to create tables
 
 Now you are ready 
+**Access the Application**
+From your browser point to application landing page where you can upload a file:
+http://homestead.app/
 
 **Main functions**
 php:
