@@ -39,7 +39,7 @@ https://laravel.com/docs/5.2/homestead#installation-and-setup
 
 ###Installation process:###
 
-1. `wget https://github.com/nadhemj/logs-to-rules/archive/master.zip`
+1. `wget https://github.com/nadhemj/logs2rules/archive/master.zip`
 2. `unzip master.zip`
 3. `cd logs-to-rules`
 4. `composer install`
