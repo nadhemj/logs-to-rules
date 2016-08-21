@@ -1,15 +1,19 @@
 ## Firewall rules generator. Alpha Version ##
-This application processes log file to get set of rules, based on a pre-defined algorithm.
+This application processes a pseudo log file and produce pseudo firewall rules, based on a pre-defined algorithm.
+The log file structure should be as follows:
 
+Source_IP_address	Destination_IP_address	Port	Protocol
 
-###Pre-requisits###
+Protocol: A number. ex. TCP would be 6 and UDP would be 17
 
-The easiest option is to install Laravel Homestead. Detailed instrutions can be found on:
-https://laravel.com/docs/5.2/homestead#installation-and-setup
+###Pre-requisites###
+
+The easiest option to run the application is to install Laravel Homestead. Detailed instructions on Homestead can be found on:
+https://laravel.com/docs/5.2/homestead#installation-and-setup. Perform the following:
 
 1. Install vagarent
 2. Install virtualbox
-3. Follow the instructions for installing Laravel Homestead
+3. Follow the instructions  on the above link to install Laravel Homestead
 
 
 
@@ -26,7 +30,7 @@ Now you are ready
 
 **Access the Application**
 
-From your browser point to the application landing page where you can upload a file:
+From your browser point to the application landing page where you can upload a log file:
 
 http://homestead.app/
 
